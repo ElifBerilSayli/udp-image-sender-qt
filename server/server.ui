@@ -1,8 +1,8 @@
 <UI version="4.0" >
- <class>qclientClass</class>
- <widget class="QMainWindow" name="qclientClass" >
+ <class>serverClass</class>
+ <widget class="QMainWindow" name="serverClass" >
   <property name="objectName" >
-   <string notr="true">qclientClass</string>
+   <string notr="true">serverClass</string>
   </property>
   <property name="geometry" >
    <rect>
@@ -13,7 +13,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>qclient</string>
+   <string>server</string>
   </property>  <widget class="QMenuBar" name="menuBar" />
   <widget class="QToolBar" name="mainToolBar" />
   <widget class="QWidget" name="centralWidget" />
@@ -22,7 +22,7 @@
  <layoutDefault spacing="6" margin="11" />
  <pixmapfunction></pixmapfunction>
  <resources>
-   <include location="qclient.qrc"/>
+   <include location="server.qrc"/>
  </resources>
  <connections/>
 </UI>

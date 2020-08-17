@@ -1,22 +1,10 @@
-#include "qclient.h"
+#include "client.h"
 #include <QtWidgets/QApplication>
-
 #include <QApplication>
 #include <QFileDialog>
 #include <QDebug>
 #include <iostream>
 #include <fstream> 
-/* MINI_POJECT
-*
-* Varsayýmlar
-* Sistemin local networkte kullanýlacaðý varsaydým.
-* Birbirinden farklý cihazlarda kullanýlmasý için acknowledge mekanizmasýna ihtiyaç duyulabilir.
-* Türkçe karakterde dosya isimleri olmadýðý varsaydým.
-* Kullaným
-* Göndermek istediðimiz resmi gönderdikten sonra açýlan pencerede resime baktýktan sonra o pencere kapatýlýr.
-* Bir sonraki resim seçilir. Ardýndan farklý Tab'lerde farklý resimler gözlenebilir.
-*/
-
 #include <WS2tcpip.h>
 #include <windows.h>
 #pragma comment (lib, "ws2_32.lib")
@@ -31,8 +19,7 @@ public:
     {
         QString filename = QFileDialog::getOpenFileName(this, "Choose the image file to send", QDir::currentPath(), "JPEG files (*.jpg)");
 
-        if (!filename.isNull())
-        {
+        if (!filename.isNull()) {
             return filename.toStdString();
         }
     }
@@ -51,12 +38,11 @@ byte* read_file(const char* filename)
     fclose(filePtr);
     return fileData;
 }
-
-
 int main(int argc, char** argv)
 {
     SetConsoleOutputCP(65001);
     while (true) {
+
         QApplication app(argc, argv);
         QFileDialogTester test;
 
@@ -74,7 +60,7 @@ int main(int argc, char** argv)
 
         WSADATA data;
 
-        if (WSAStartup(MAKEWORD(2, 2), &data) == 0)
+        if (WSAStartup(MAKEWORD(2, 2), &data) == 0) 
         {
             sockaddr_in server;
             server.sin_family = AF_INET;                        // AF_INET = IPv4 addresses

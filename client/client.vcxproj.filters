@@ -24,16 +24,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="qclient.qrc">
+    <QtRcc Include="client.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="qclient.ui">
+    <QtUic Include="client.ui">
       <Filter>Resource Files</Filter>
     </QtUic>
-    <QtMoc Include="qclient.h">
+    <QtMoc Include="client.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="qclient.cpp">
+    <ClCompile Include="client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

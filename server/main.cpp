@@ -1,14 +1,3 @@
-/* MINI_POJECT
-* 
-* Varsayýmlar
-* Sistemin local networkte kullanýlacaðý varsaydým. 
-* Birbirinden farklý cihazlarda kullanýlmasý için acknowledge mekanizmasýna ihtiyaç duyulabilir.
-* Türkçe karakterde dosya isimleri olmadýðý varsaydým.
-* Kullaným
-* Göndermek istediðimiz resmi gönderdikten sonra açýlan pencerede resime baktýktan sonra o pencere kapatýlýr.
-* Bir sonraki resim seçilir. Ardýndan farklý Tab'lerde farklý resimler gözlenebilir.
-*/
-
 #include <QApplication>
 #include <QMainWindow>
 #include <QLabel>
@@ -22,7 +11,7 @@
 using namespace std;
 
 // Adding Tabs to window for each image
-void draw(QByteArray arr, QMainWindow *window, QWidget* centralWidget , QTabWidget* tabs) 
+void draw(QByteArray arr, QMainWindow* window, QWidget* centralWidget, QTabWidget* tabs)
 {
 	QPixmap image;
 	QLabel* label = new QLabel(tabs);
@@ -44,7 +33,7 @@ int main(int argc, char** argv)
 	// UDP connection basics via winsock
 	WSADATA data;
 	if (WSAStartup(MAKEWORD(2, 2), &data) != 0)
-    {
+	{
 		cout << "Can't start Winsock! " << endl;
 		return NULL;
 	}
@@ -63,7 +52,7 @@ int main(int argc, char** argv)
 	char* buf = (char*)malloc(CHUNK_SIZE);
 
 	while (true) {
-		
+
 		// Clear Buffer
 		ZeroMemory(&client, clientLength);
 		ZeroMemory(buf, CHUNK_SIZE);
@@ -106,14 +95,14 @@ int main(int argc, char** argv)
 		}
 		cout << "File Received succesfully!" << endl;
 		QByteArray ba(fileBuf, file_size);
-		draw(ba, window, centralWidget,tabs);
+		draw(ba, window, centralWidget, tabs);
 		free(fileBuf);
 		window->setCentralWidget(centralWidget);
 		window->show();
 		app.exec();
-		
 	}
-		closesocket(in);
-		WSACleanup();
+
+	closesocket(in);
+	WSACleanup();
 	return 0;
 }
